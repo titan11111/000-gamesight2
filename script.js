@@ -21,10 +21,6 @@ function getPlayUrl(repo) {
   return `https://titan11111.github.io/${repo}/`;
 }
 
-function getGithubUrl(repo) {
-  return `https://github.com/titan11111/${repo}`;
-}
-
 function getImageUrl(repo) {
   return `images/${repo}.png`;
 }
@@ -60,7 +56,6 @@ function createActions(game) {
 
   return `
     <a class="game-btn primary-btn" href="${getPlayUrl(game.repo)}" target="_blank" rel="noopener noreferrer">Play</a>
-    <a class="game-btn secondary-btn" href="${getGithubUrl(game.repo)}" target="_blank" rel="noopener noreferrer">GitHub</a>
   `;
 }
 
