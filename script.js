@@ -11,7 +11,19 @@ const grid = document.querySelector("#game-grid");
 const playNow = document.querySelector("#play-now");
 
 const readyGames = games.filter((game) => game.status === "ready");
-const latestReadyGame = readyGames[readyGames.length - 1];
+
+const featuredRepos = [
+  "042-3Dshooting",
+  "047-maikura",
+  "049-tetoris",
+  "053-SCAN-FIGHTERS",
+  "061-rizme",
+  "062-roguelite",
+  "079-kitakudash",
+  "100-DNA",
+  "109-crow-s-destiny",
+  "040-kakuge"
+];
 
 function getNumberLabel(repo) {
   return repo.slice(0, 3).padStart(3, "0");
@@ -101,7 +113,7 @@ function renderGames() {
 }
 
 function preparePrimaryCta() {
-  if (!latestReadyGame) {
+  if (!readyGames.length) {
     playNow.textContent = "準備中";
     playNow.removeAttribute("href");
     playNow.classList.remove("primary-btn");
@@ -109,8 +121,13 @@ function preparePrimaryCta() {
     return;
   }
 
-  playNow.href = getPlayUrl(latestReadyGame.repo);
-  playNow.setAttribute("aria-label", `${latestReadyGame.title} を今すぐ遊ぶ`);
+  playNow.removeAttribute("href");
+  playNow.setAttribute("aria-label", "おすすめゲームをランダムに今すぐ遊ぶ");
+  playNow.addEventListener("click", (e) => {
+    e.preventDefault();
+    const repo = featuredRepos[Math.floor(Math.random() * featuredRepos.length)];
+    window.open(getPlayUrl(repo), "_blank", "noopener,noreferrer");
+  });
 }
 
 function addTapFeedback() {
