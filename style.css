@@ -175,6 +175,11 @@ button {
   color: #8d5c00;
 }
 
+.thumb-placeholder.check {
+  background: linear-gradient(135deg, rgba(47, 107, 255, 0.14), rgba(226, 236, 255, 0.95));
+  color: var(--accent-strong);
+}
+
 .card-body {
   display: grid;
   gap: 14px;
@@ -228,6 +233,11 @@ button {
 .status-wip {
   background: rgba(224, 150, 17, 0.16);
   color: #8d5c00;
+}
+
+.status-check {
+  background: rgba(47, 107, 255, 0.12);
+  color: var(--accent-strong);
 }
 
 .card-actions {
